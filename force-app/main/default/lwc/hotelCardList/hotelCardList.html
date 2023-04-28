@@ -1,0 +1,60 @@
+<template>
+    
+<lightning-layout>
+    <lightning-layout-item style="max-width:60%">
+    <lightning-card title="Hotels" icon-name="custom:custom18">
+    
+        <lightning-input type="search" onchange={handlesearch} variant="label-hidden"
+                         class="slds-var-m-bottom_small slds-p-left_medium slds-p-right_medium"
+                         placeholder="Enter Hotel Names"
+                         value={searchwords}>
+        </lightning-input>
+        <template if:true={hotels}>
+            <template if:false={isSearchable}>
+            <lightning-layout multiple-rows="true">
+                <template for:each={hotels} for:item="hoteldetail">
+
+                    <lightning-layout-item key={hoteldetail.Id} size="3" class="slds-var-p-around_x-small">
+
+                        <lightning-card title={hoteldetail.Name} class="Hotel_card">
+                            <div class="slds-var-p-horizontal_small">
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-col slds-size_8-of-12">
+                                        <img src={hoteldetail.Hotel_Image__c} alt="Hotel" class="Hotel_images"/>
+                                    </div>
+                                    <div class="slds-col slds-size_4-of-12">
+                                        <p class="slds=var-m-bottom_xx-large"><strong>{hoteldetail.Name}</strong></p>
+
+                                    </div>
+                                </div>
+                            </div>
+                            
+                          
+                        </lightning-card>
+                    </lightning-layout-item>
+                </template>
+            </lightning-layout>
+
+        </template>    
+        </template>
+    <template if:true={isSearchable}>
+        We didn't find any Hotels...
+    </template>
+
+    </lightning-card>
+</lightning-layout-item>
+<lightning-layout-item style="max-width: 40%">
+    <lightning-card title="hoteldetail.Name" icon-name="custom:custom10">
+    <div class="slds-grid slds-wrap">
+        <p> The Name of the Hotel is:</p>
+    </div>
+</lightning-card>
+</lightning-layout-item>
+</lightning-layout>
+</template>
+
+
+
+
+
+

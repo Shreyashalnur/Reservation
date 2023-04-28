@@ -1,0 +1,10 @@
+.Hotel-card{
+    border: 1px solid blue;
+    border-radius: 0.25rem;
+    display: inline-block;
+
+}
+.hotel_images{
+    height: 100px;
+    width: 100px;
+}
